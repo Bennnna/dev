@@ -55,3 +55,78 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img', { delay: 400 });
 sr.reveal('.home__social-icon', { interval: 200 });
 sr.reveal('.skills__data, .work__img, .contact__input', { interval: 200 });
+
+/*===== WORK MODAL =====*/
+const modal = document.getElementById('work-modal');
+const modalClose = document.getElementById('modal-close');
+const modalTitle = document.getElementById('modal-title');
+const modalBody = document.getElementById('modal-body');
+
+const workData = {
+    'work-vla': {
+        title: 'HybridDriveVLA (CVPR 2026)',
+        body: `<p>🎉 I’m excited to share that my latest research paper has been accepted to CVPR 2026 (Conference on Computer Vision and Pattern Recognition).</p>
+        <p><strong>HybridDriveVLA: Vision-Language-Action Model with Visual CoT Reasoning and ToT Evaluation for Autonomous Driving.</strong></p>
+        <p>We introduced a Vision-Language-Action reasoning-driven framework that:</p>
+        <ul>
+            <li>🔹 Anticipates future driving scenes using Visual Chain-of-Thought (V-CoT)</li>
+            <li>🔹 Plan and Predict, multiple-sequence waypoints as candidate trajectories based respectively on Safety, Comfort, and Progress Aspects</li>
+            <li>🔹 Explore and select the optimal waypoints among the predicted multiple-sequence waypoints via Tree-of-Thought Evaluation (ToT-E).</li>
+        </ul>
+        <p>This work moves autonomous driving from single-sequence waypoint prediction toward explorative, deliberative, and interpretable multimodal reasoning over multiple-sequence waypoints.</p>
+        <p>Proud to contribute to the future of Autonomous Intelligent Systems and Vision-Language-Action models.</p>
+        <p>Thanks to all my coauthors and Supervisors.</p>
+        <p>📌 More details soon. <br>#CVPR2026 #VLA #AutonomousDriving</p>`
+    },
+    'work-pinn': {
+        title: 'Physics-Informed Neural Network (SCIE Q1)',
+        body: `<p>I'm pleased to share that my latest research has been published in "Complex & Intelligent Systems" (Q1 Scientific Journal).</p>
+        <p>Our paper, <strong>"Physics-informed neural network and momentum contrastive learning for battery state of health estimation,"</strong> addresses a critical challenge in the era of autonomous electric mobility that is ensuring the reliability and safety of Lithium-ion batteries under complex operating conditions.</p>
+        <p>As Autonomous Vehicles (AVs) demand increasingly sophisticated power management strategies, traditional data-driven methods often fall short in generalization and physical consistency. Our work introduces a novel hybrid architecture that bridges this gap.</p>
+        <p><strong>Key Innovations & Impact:</strong></p>
+        <ul>
+            <li>🔹 <strong>Physics-Aware AI:</strong> We successfully integrated Physics-Informed Neural Networks (PINN) with Momentum Contrastive Learning to enforce electrochemical principles while capturing robust degradation patterns.</li>
+            <li>🔹 <strong>Precision for Autonomous Systems:</strong> The model achieves state-of-the-art accuracy (MAE of 0.095%), enabling the precise State of Health (SoH) estimation required for safe decision-making in autonomous EV navigation.</li>
+            <li>🔹 <strong>Data Efficiency:</strong> By leveraging specific Physics-Guided Data Augmentation, we significantly improved performance even when labeled data is scarce.</li>
+            <li>🔹 <strong>Real-Time Capability:</strong> Optimized for high-throughput inference, making it viable for deployment in onboard Battery Management Systems (BMS).</li>
+        </ul>
+        <p>This research represents a significant step forward in building the "safety-critical" infrastructure necessary for the mass adoption of autonomous electric vehicles.</p>
+        <p>I would like to extend my gratitude to my co-authors Jiwoo Jung and Prof. Yunsick Sung, and to Dongguk University for their continued support.</p>
+        <p>📄 Read the full study here: <a href="https://lnkd.in/gcJaqkut" target="_blank">https://lnkd.in/gcJaqkut</a></p>`
+    },
+    'work-debate': {
+        title: 'Debating Agent Router (SCIE Q1)',
+        body: `<p>I’m thrilled to share that our paper, <strong>"Debating Agent Router in Mixture of VLM Experts,"</strong> has been successfully accepted for publication in Knowledge-Based Systems (SCIE Q1).</p>
+        <p>In the rapidly evolving landscape of Vision-Language Models (VLMs), optimal task routing remains a critical bottleneck. Our work tackles this by introducing a novel, multi-agent debating framework that dynamically routes complex queries to the most suitable expert models.</p>
+        <p><strong>Key Innovations & Impact:</strong></p>
+        <ul>
+            <li>🔹 <strong>Multi-Agent Debate Mechanism:</strong> We designed an autonomous debating system where specialized agents collaboratively evaluate and critique potential routing paths, ensuring highly reliable expert selection without single-point failure.</li>
+            <li>🔹 <strong>Advanced Mixture of Experts (MoE):</strong> By integrating this debate logic into an MoE architecture, the system achieves unprecedented accuracy in dynamically allocating computational resources to Vision-Language tasks.</li>
+            <li>🔹 <strong>Superior Reasoning & Scalability:</strong> The framework significantly reduces hallucinations and bias, proving its robustness across diverse, high-complexity multimodal benchmarks.</li>
+        </ul>
+        <p>This advancement paves the way for more dependable and efficient AI agent systems. A huge thank you to my co-authors and supervisors for their incredible support and collaboration.</p>
+        <p>📄 More details and full paper coming soon!</p>`
+    }
+};
+
+document.querySelectorAll('.work__img').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = this.getAttribute('id');
+        if(workData[id]) {
+            modalTitle.innerHTML = workData[id].title;
+            modalBody.innerHTML = workData[id].body;
+            modal.classList.add('show-modal');
+        }
+    });
+});
+
+modalClose.addEventListener('click', () => {
+    modal.classList.remove('show-modal');
+});
+
+window.addEventListener('click', (e) => {
+    if(e.target === modal) {
+        modal.classList.remove('show-modal');
+    }
+});

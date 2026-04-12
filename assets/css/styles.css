@@ -552,3 +552,77 @@ img {
     width: 450px;
   }
 }
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.modal.show-modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__content {
+  background-color: #fff;
+  padding: 3rem 2rem 2rem;
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--first-color);
+  transition: 0.3s;
+}
+.modal__close:hover {
+  transform: scale(1.1);
+}
+
+.modal__title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+
+.modal__body p,
+.modal__body li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.modal__body ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+.modal__body a {
+  color: var(--first-color);
+  text-decoration: underline;
+}
+
+.work__img {
+  cursor: pointer;
+}
