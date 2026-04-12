@@ -92,7 +92,7 @@ const workData = {
         </ul>
         <p>This research represents a significant step forward in building the "safety-critical" infrastructure necessary for the mass adoption of autonomous electric vehicles.</p>
         <p>I would like to extend my gratitude to my co-authors Jiwoo Jung and Prof. Yunsick Sung, and to Dongguk University for their continued support.</p>
-        <p>📄 Read the full study here: <a href="https://lnkd.in/gcJaqkut" target="_blank">https://lnkd.in/gcJaqkut</a></p>`
+        <p>📄 Check out my LinkedIn for more details: <a href="https://www.linkedin.com/in/jiwoo00" target="_blank">linkedin.com/in/jiwoo00</a></p>`
     },
     'work-debate': {
         title: 'Debating Agent Router (Knowledge-Based Systems)',
