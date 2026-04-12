@@ -95,16 +95,17 @@ const workData = {
         <p>📄 Read the full study here: <a href="https://lnkd.in/gcJaqkut" target="_blank">https://lnkd.in/gcJaqkut</a></p>`
     },
     'work-debate': {
-        title: 'Debating Agent Router (SCIE Q1)',
-        body: `<p>I’m thrilled to share that our paper, <strong>"Debating Agent Router in Mixture of VLM Experts,"</strong> has been successfully accepted for publication in Knowledge-Based Systems (SCIE Q1).</p>
-        <p>In the rapidly evolving landscape of Vision-Language Models (VLMs), optimal task routing remains a critical bottleneck. Our work tackles this by introducing a novel, multi-agent debating framework that dynamically routes complex queries to the most suitable expert models.</p>
+        title: 'Debating Agent Router (Knowledge-Based Systems)',
+        body: `<p>I’m thrilled to share that our paper, <strong>"Debating Agent Router in Mixture of Vision-Language Model Experts for Autonomous Driving,"</strong> has been successfully accepted for publication in Knowledge-Based Systems (SCIE Q1).</p>
+        <p>In autonomous driving Visual Question Answering (VQA), traditional Mixture-of-Experts (MoE) routers rely on uninterpretable latent features from a single frame. Our work tackles this limitation by introducing a novel debate-based agentic router strategy that dynamically allocates computational resources based on progressive safety risk assessments.</p>
         <p><strong>Key Innovations & Impact:</strong></p>
         <ul>
-            <li>🔹 <strong>Multi-Agent Debate Mechanism:</strong> We designed an autonomous debating system where specialized agents collaboratively evaluate and critique potential routing paths, ensuring highly reliable expert selection without single-point failure.</li>
-            <li>🔹 <strong>Advanced Mixture of Experts (MoE):</strong> By integrating this debate logic into an MoE architecture, the system achieves unprecedented accuracy in dynamically allocating computational resources to Vision-Language tasks.</li>
-            <li>🔹 <strong>Superior Reasoning & Scalability:</strong> The framework significantly reduces hallucinations and bias, proving its robustness across diverse, high-complexity multimodal benchmarks.</li>
+            <li>🔹 <strong>Progressive Debate Routing:</strong> We designed a multi-agent framework where two debate agents iteratively update a discrete safety risk level (Low, Medium, High) using bounding-box evidence. A judge agent monitors the debate state to trigger routing only when reasoning is sufficient.</li>
+            <li>🔹 <strong>Dynamic Expert Allocation:</strong> The system maps the adjudicated safety risk level directly to a Vision-Language expert hierarchy (e.g., 2B, 4B, 8B models), efficiently optimizing perception, planning, and prediction without unnecessary computation.</li>
+            <li>🔹 <strong>Auditable & Interpretable Decisions:</strong> Unlike black-box MoE routers, our framework outputs a transparent routing trace that records the trigger step, selected expert, risk level, and referenced physical objects.</li>
+            <li>🔹 <strong>State-of-the-Art Efficiency:</strong> Evaluated on the DriveLM-nuScenes benchmark, the framework achieved a superior ROUGE-L score (0.451) while significantly reducing computational overhead by frequently routing to moderately-sized experts for medium-risk cases.</li>
         </ul>
-        <p>This advancement paves the way for more dependable and efficient AI agent systems. A huge thank you to my co-authors and supervisors for their incredible support and collaboration.</p>
+        <p>This advancement paves the way for transparent, safety-critical AI systems in autonomous driving. A huge thank you to my co-authors and supervisors for their incredible support!</p>
         <p>📄 More details and full paper coming soon!</p>`
     }
 };
