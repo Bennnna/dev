@@ -193,6 +193,8 @@ img {
 
 /*===== HOME =====*/
 .home {
+  min-height: 90vh;
+  display: flex;
   position: relative;
   row-gap: 5rem;
   padding: 4rem 0 5rem;
@@ -232,69 +234,120 @@ img {
   right: 0;
   bottom: 0;
   width: 260px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-/* PREMIUM PROFILE PRESENTATION */
-.profile-premium {
+/* ========================================= */
+/* VLA + MULTI-AGENT SOPHISTICATED PROFILE */
+/* ========================================= */
+.vla-agent-profile {
   position: relative;
   width: 100%;
   max-width: 320px;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  background: #fff;
-  padding: 8px; /* Elegant thin white border */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  animation: premiumFloat 6s ease-in-out infinite;
+  padding: 1.5rem; /* space for brackets */
+  animation: gentleHover 6s ease-in-out infinite;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
 }
 
-.profile-premium::after {
+/* Very thin, elegant bounds (VLA Bounding Box Concept) */
+.vla-bracket {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--first-color);
+  opacity: 0.4;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.vla-bracket.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.vla-bracket.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.vla-bracket.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.vla-bracket.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.vla-agent-profile:hover .vla-bracket {
+  opacity: 1;
+  width: 25px;
+  height: 25px;
+  border-color: var(--first-color);
+}
+
+/* Tiny elegant label */
+.agent-label {
+  position: absolute;
+  top: -8px;
+  left: 1.5rem;
+  background-color: var(--first-color);
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  padding: 0.2rem 0.6rem;
+  font-family: monospace;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.vla-agent-profile:hover .agent-label {
+  opacity: 1;
+}
+
+/* Hexagon clipping (Multi-Agent Node Concept) */
+.hexagon-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+/* Base Shadow/Glow Trick for clip-path */
+.vla-agent-profile::before {
   content: '';
   position: absolute;
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
+  top: 1.5rem; left: 1.5rem; right: 1.5rem; bottom: 1.5rem;
   background: var(--first-color);
-  filter: blur(40px);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  filter: blur(20px);
+  opacity: 0.15;
   z-index: -1;
-  opacity: 0.2;
   transition: opacity 0.5s ease;
 }
 
-.profile-premium:hover::after {
-  opacity: 0.5;
+.vla-agent-profile:hover::before {
+  opacity: 0.3;
 }
 
-.profile-premium__img-wrapper {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  background-color: #f5f5f5;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.05);
-}
-
-.profile-premium__img {
+.hexagon-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   filter: grayscale(100%) contrast(1.05);
-  transition: filter 0.8s ease, transform 0.8s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.profile-premium:hover .profile-premium__img {
+.hexagon-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.1));
+  transition: all 0.6s ease;
+}
+
+.vla-agent-profile:hover .hexagon-img {
   filter: grayscale(0%) contrast(1);
   transform: scale(1.03);
 }
 
-@keyframes premiumFloat {
+.vla-agent-profile:hover .hexagon-overlay {
+  opacity: 0;
+}
+
+@keyframes gentleHover {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
@@ -512,8 +565,10 @@ img {
     margin-right: var(--mb-4);
   }
   .home__img {
-    width: 300px;
-    bottom: 25%;
+    width: 350px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
   }
   .about__container {
     grid-template-columns: repeat(2, 1fr);
@@ -576,7 +631,9 @@ img {
   }
   .home__img {
     width: 400px;
-    bottom: 10%;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
   }
   .about__container {
     padding-top: 2rem;
