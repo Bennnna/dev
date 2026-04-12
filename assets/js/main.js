@@ -79,7 +79,7 @@ const workData = {
         <p>📌 More details soon. <br>#CVPR2026 #VLA #AutonomousDriving</p>`
     },
     'work-pinn': {
-        title: 'Physics-Informed Neural Network (SCIE Q1)',
+        title: 'Physics-Informed Neural Network (Complex & Intelligent Systems)',
         body: `<p>I'm pleased to share that my latest research has been published in "Complex & Intelligent Systems" (Q1 Scientific Journal).</p>
         <p>Our paper, <strong>"Physics-informed neural network and momentum contrastive learning for battery state of health estimation,"</strong> addresses a critical challenge in the era of autonomous electric mobility that is ensuring the reliability and safety of Lithium-ion batteries under complex operating conditions.</p>
         <p>As Autonomous Vehicles (AVs) demand increasingly sophisticated power management strategies, traditional data-driven methods often fall short in generalization and physical consistency. Our work introduces a novel hybrid architecture that bridges this gap.</p>
