@@ -22,23 +22,68 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
+        /*===== PUBLICATION CARDS =====*/
         .work__container {
             align-items: start;
         }
 
-        .work__img {
+        .work__card {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .work__thumbnail {
+            width: 100%;
+            overflow: hidden;
             background-color: #fff;
         }
 
-        .work__img img {
+        .work__thumbnail img {
+            display: block;
             width: 100%;
             height: auto;
             object-fit: contain;
-            border-radius: 0.25rem;
+        }
+
+        /*
+         * PhysMargin-CoC architecture image
+         * 기존 CSS보다 우선 적용되도록 ID 선택자와 !important를 사용합니다.
+         */
+        #work-physmargin .physmargin-thumbnail {
+            width: 100%;
+            height: 260px !important;
+            min-height: 260px !important;
+            padding: 16px;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        #work-physmargin .physmargin-thumbnail img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain !important;
+            border-radius: 0;
+        }
+
+        /* 기존 두 번째 이미지가 남아 있을 경우 숨김 */
+        #work-physmargin .physmargin-thumbnail img:not(:first-child) {
+            display: none !important;
+        }
+
+        @media screen and (max-width: 576px) {
+            #work-physmargin .physmargin-thumbnail {
+                height: 220px !important;
+                min-height: 220px !important;
+                padding: 12px;
+            }
         }
     </style>
 </head>
@@ -48,7 +93,7 @@
     <header class="l-header" id="header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">Jiwoo Jung</a>
+                <a href="#home" class="nav__logo">Jiwoo Jung</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
@@ -335,12 +380,9 @@
                     id="work-physmargin"
                     aria-label="Open PhysMargin-CoC details">
 
-                    <div class="work__thumbnail">
-                        <img src="assets/img/coc.png"
+                    <div class="work__thumbnail physmargin-thumbnail">
+                        <img src="./assets/img/coc.png"
                             alt="PhysMargin-CoC framework architecture">
-
-                        <img src="Figure2_A_matrix.png"
-                            alt="PhysMargin-CoC predicate-margin contradiction matrix">
                     </div>
 
                     <div class="work__info">
