@@ -4,23 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description"
-        content="Jiwoo Jung - AI Researcher & Engineer specializing in Multimodal AI, VLA Models, and AI Agent Systems. Published at CVPR 2026 and in SCIE journals.">
+        content="Jiwoo Jung - AI Researcher & Engineer specializing in Multimodal AI, VLA Models, reasoning–physics consistency auditing, and autonomous driving.">
+
     <meta name="keywords"
-        content="AI Engineer, Researcher, Multimodal AI, VLA, Autonomous Driving, Deep Learning, Jiwoo Jung">
+        content="AI Engineer, Researcher, Multimodal AI, VLA, PhysMargin-CoC, Autonomous Driving, Deep Learning, Jiwoo Jung">
+
     <meta name="author" content="Jiwoo Jung">
 
     <title>Jiwoo Jung | AI Researcher & Engineer</title>
 
     <!--===== BOX ICONS =====-->
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
 
     <!--===== CSS =====-->
     <link rel="stylesheet" href="assets/css/styles.css">
+
     <style>
         .work__container {
             align-items: start;
-            /* Prevents grid items from stretching out of proportion */
         }
 
         .work__img {
@@ -50,16 +53,30 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                    <li class="nav__item"><a href="#Publications" class="nav__link">Publications</a></li>
-                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">About</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">Skills</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#work" class="nav__link">Research & Publications</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-menu'></i>
+                <i class="bx bx-menu"></i>
             </div>
         </nav>
     </header>
@@ -68,20 +85,40 @@
         <!--===== HOME =====-->
         <section class="home bd-grid" id="home">
             <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Jiwoo</span><br> AI Researcher</h1>
+                <h1 class="home__title">
+                    Hi,<br>
+                    I'm <span class="home__title-color">Jiwoo</span><br>
+                    AI Researcher
+                </h1>
+
                 <a href="#contact" class="button">Contact</a>
             </div>
 
             <div class="home__social">
-                <a href="https://www.linkedin.com/in/jiwoo00" target="_blank" class="home__social-icon"><i
-                        class='bx bxl-linkedin-square'></i></a>
-                <a href="https://github.com/Bennnna" target="_blank" class="home__social-icon"><i
-                        class='bx bxl-github'></i></a>
+                <a href="https://www.linkedin.com/in/jiwoo00"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home__social-icon"
+                    aria-label="LinkedIn">
+
+                    <i class="bx bxl-linkedin-square"></i>
+                </a>
+
+                <a href="https://github.com/Bennnna"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="home__social-icon"
+                    aria-label="GitHub">
+
+                    <i class="bx bxl-github"></i>
+                </a>
             </div>
 
             <div class="home__img">
                 <div class="profile-elegant">
-                    <img src="assets/img/jiu.png" alt="Jiwoo Jung Profile" class="profile-elegant__img">
+                    <img src="assets/img/jiu.png"
+                        alt="Jiwoo Jung Profile"
+                        class="profile-elegant__img">
                 </div>
             </div>
         </section>
@@ -92,28 +129,58 @@
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="assets/img/jiu.png" alt="Jiwoo Jung Profile Photo">
+                    <img src="assets/img/jiu.png"
+                        alt="Jiwoo Jung Profile Photo">
                 </div>
 
                 <div>
                     <h2 class="about__subtitle">I'm Jiwoo Jung</h2>
-                    <p class="about__text"><strong>M.S., Department of Computer Science and Artificial Intelligence,
-                            Dongguk University, Seoul.</strong><br><br>
-                        AI Researcher specializing in Vision-Language-Action (VLA) models, multi-agent systems,
-                        and autonomous driving. Published at CVPR 2026 and in SCIE Q1 journals
-                        (Knowledge-Based Systems, Complex & Intelligent Systems).<br><br>
-                        <strong>인공지능융합혁신인재양성(IITP/MSIT)</strong> — Developed a multi-agent debate
-                        framework with Mixture-of-Experts routing for Vision-Language Models, and designed
-                        a VLA pipeline with inference-time reasoning (Visual CoT, ToT). This work led to
-                        publications at <em>CVPR 2026</em> and <em>Knowledge-Based Systems</em>.<br><br>
-                        <strong>ICAN AI+X Project(IITP/MSIT)</strong> — Developed a Physics-Informed Neural
-                        Network combined with momentum contrastive learning for battery state of health
-                        estimation, and filed a patent on AI-driven physical system monitoring. Published in
-                        <em>Complex & Intelligent Systems</em>.<br><br>
-                        <strong>AI 운전능력평가 표준화사업(KIPoT/경찰청)</strong> — Designed AI-based evaluation
-                        metrics and benchmark scenarios for autonomous driving capability assessment, and
-                        developed a standardized testing pipeline integrating vision-language models for
-                        driving behavior analysis.</p>
+
+                    <p class="about__text">
+                        <strong>
+                            M.S., Department of Computer Science and Artificial Intelligence,
+                            Dongguk University, Seoul.
+                        </strong>
+                        <br><br>
+
+                        AI Researcher specializing in Vision-Language-Action (VLA) models,
+                        reasoning–physics consistency auditing, multimodal AI, and autonomous
+                        driving. Published at CVPR 2026 and in the SCIE Q1 journal
+                        <em>Complex & Intelligent Systems</em>.
+                        <br><br>
+
+                        <strong>
+                            Physical-Margin Chain-of-Contradiction (PhysMargin-CoC)
+                        </strong>
+                        — Developed a deterministic post-hoc auditing framework that identifies
+                        inconsistencies between action-oriented VLA reasoning and independently
+                        computed physical, comfort, and behavioral evidence. The framework
+                        evaluates Waymo Open Motion Dataset scenarios using six signed margins,
+                        text-independent applicability masks, and an inspectable 12 × 6
+                        predicate–margin contradiction matrix. It also provides pairwise evidence
+                        attribution and paired Base/DoRA model evaluation.
+                        <br><br>
+
+                        <strong>인공지능융합혁신인재양성(IITP/MSIT)</strong>
+                        — Designed a Vision-Language-Action pipeline incorporating inference-time
+                        reasoning methods, including Visual Chain-of-Thought and Tree-of-Thought
+                        evaluation, for autonomous-driving decision analysis. This work led to
+                        publication at <em>CVPR 2026</em>.
+                        <br><br>
+
+                        <strong>ICAN AI+X Project (IITP/MSIT)</strong>
+                        — Developed a Physics-Informed Neural Network combined with momentum
+                        contrastive learning for battery state-of-health estimation and filed a
+                        patent on AI-driven physical-system monitoring. Published in
+                        <em>Complex & Intelligent Systems</em>.
+                        <br><br>
+
+                        <strong>AI 운전능력평가 표준화사업(KIPoT/경찰청)</strong>
+                        — Designed AI-based evaluation metrics and benchmark scenarios for
+                        autonomous-driving capability assessment and developed a standardized
+                        testing pipeline integrating vision-language models for driving-behavior
+                        analysis.
+                    </p>
                 </div>
             </div>
         </section>
@@ -125,127 +192,196 @@
             <div class="skills__container bd-grid">
                 <div>
                     <h2 class="skills__subtitle">Professional Skills</h2>
-                    <p class="skills__text">My expertise spans from foundational engineering to state-of-the-art AI
-                        model development.</p>
+
+                    <p class="skills__text">
+                        My expertise spans foundational engineering, multimodal reasoning,
+                        physical consistency auditing, and state-of-the-art AI model development.
+                    </p>
 
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxs-brain skills__icon'></i>
+                            <i class="bx bxs-brain skills__icon"></i>
                             <span class="skills__name">MULTIMODAL AI</span>
                         </div>
+
                         <div class="skills__bar skills__multimodal"></div>
+
                         <div>
                             <span class="skills__percentage">95%</span>
                         </div>
                     </div>
+
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxs-bot skills__icon'></i>
-                            <span class="skills__name">AI AGENTS</span>
+                            <i class="bx bx-check-shield skills__icon"></i>
+                            <span class="skills__name">AI AUDITING</span>
                         </div>
+
                         <div class="skills__bar skills__agents"></div>
+
                         <div>
                             <span class="skills__percentage">90%</span>
                         </div>
                     </div>
+
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxs-car skills__icon'></i>
+                            <i class="bx bxs-car skills__icon"></i>
                             <span class="skills__name">AUTONOMOUS SYSTEMS</span>
                         </div>
+
                         <div class="skills__bar skills__autonomous"></div>
+
                         <div>
                             <span class="skills__percentage">85%</span>
                         </div>
                     </div>
+
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bx-target-lock skills__icon'></i>
+                            <i class="bx bx-target-lock skills__icon"></i>
                             <span class="skills__name">VLA MODELS</span>
                         </div>
+
                         <div class="skills__bar skills__vla"></div>
+
                         <div>
                             <span class="skills__percentage">90%</span>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="skills__container bd-grid skills__container--second">
                 <div>
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxl-python skills__icon'></i>
+                            <i class="bx bxl-python skills__icon"></i>
                             <span class="skills__name">PYTHON</span>
                         </div>
+
                         <div class="skills__bar skills__python"></div>
+
                         <div>
                             <span class="skills__percentage">95%</span>
                         </div>
                     </div>
+
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bx-code-alt skills__icon'></i>
+                            <i class="bx bx-code-alt skills__icon"></i>
                             <span class="skills__name">PYTORCH / TENSORFLOW</span>
                         </div>
+
                         <div class="skills__bar skills__pytorch"></div>
+
                         <div>
                             <span class="skills__percentage">90%</span>
                         </div>
                     </div>
+
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxs-server skills__icon'></i>
+                            <i class="bx bxs-server skills__icon"></i>
                             <span class="skills__name">FASTAPI / DOCKER</span>
                         </div>
+
                         <div class="skills__bar skills__infra"></div>
+
                         <div>
                             <span class="skills__percentage">80%</span>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!--===== WORK =====-->
+        <!--===== RESEARCH & PUBLICATIONS =====-->
         <section class="work section" id="work">
-            <h2 class="section-title">Publications</h2>
+            <h2 class="section-title">Research & Publications</h2>
 
             <div class="work__container bd-grid">
-                <a href="#" class="work__card" id="work-vla">
+                <!--===== HYBRIDDRIVEVLA =====-->
+                <a href="#"
+                    class="work__card"
+                    id="work-vla"
+                    aria-label="Open HybridDriveVLA details">
+
                     <div class="work__thumbnail">
-                        <img src="assets/img/cvpr1.png" alt="HybridDriveVLA">
-                        <img src="assets/img/cvpr2.png" alt="HybridDriveVLA Architecture">
+                        <img src="assets/img/cvpr1.png"
+                            alt="HybridDriveVLA overview">
+
+                        <img src="assets/img/cvpr2.png"
+                            alt="HybridDriveVLA architecture">
                     </div>
+
                     <div class="work__info">
-                        <span class="work__venue work__venue--conf">CVPR 2026</span>
+                        <span class="work__venue work__venue--conf">
+                            CVPR 2026
+                        </span>
+
                         <h3 class="work__title">HybridDriveVLA</h3>
-                        <p class="work__desc">Vision-Language-Action Model with Visual CoT Reasoning and ToT Evaluation for Autonomous Driving</p>
+
+                        <p class="work__desc">
+                            Vision-Language-Action model with Visual Chain-of-Thought
+                            reasoning and Tree-of-Thought evaluation for autonomous driving.
+                        </p>
                     </div>
                 </a>
 
-                <a href="#" class="work__card" id="work-debate">
+                <!--===== PHYSMARGIN-COC =====-->
+                <a href="#"
+                    class="work__card"
+                    id="work-physmargin"
+                    aria-label="Open PhysMargin-CoC details">
+
                     <div class="work__thumbnail">
-                        <img src="assets/img/kbs1.png" alt="Debating Agent Router">
-                        <img src="assets/img/kbs2.png" alt="Debating Agent Router Architecture">
+                        <img src="fig1.png"
+                            alt="PhysMargin-CoC framework architecture">
+
+                        <img src="Figure2_A_matrix.png"
+                            alt="PhysMargin-CoC predicate-margin contradiction matrix">
                     </div>
+
                     <div class="work__info">
-                        <span class="work__venue work__venue--journal">Knowledge-Based Systems</span>
-                        <h3 class="work__title">Debating Agent Router</h3>
-                        <p class="work__desc">Debating Agent Router in Mixture of Vision-Language Model Experts for Autonomous Driving</p>
+                        <span class="work__venue work__venue--journal">
+                            Ongoing Research
+                        </span>
+
+                        <h3 class="work__title">PhysMargin-CoC</h3>
+
+                        <p class="work__desc">
+                            Physical-Margin Chain-of-Contradiction auditing for detecting
+                            and attributing reasoning–physics inconsistencies in
+                            autonomous-driving Vision-Language-Action models.
+                        </p>
                     </div>
                 </a>
 
-                <a href="#" class="work__card" id="work-pinn">
+                <!--===== BATTERY SOH =====-->
+                <a href="#"
+                    class="work__card"
+                    id="work-pinn"
+                    aria-label="Open Physics-Informed Neural Network details">
+
                     <div class="work__thumbnail">
-                        <img src="assets/img/com1.png" alt="PINN for Battery SOH">
+                        <img src="assets/img/com1.png"
+                            alt="Physics-Informed Neural Network for battery state-of-health estimation">
                     </div>
+
                     <div class="work__info">
-                        <span class="work__venue work__venue--journal">Complex & Intelligent Systems</span>
-                        <h3 class="work__title">Physics-Informed Neural Network</h3>
-                        <p class="work__desc">PINN and Momentum Contrastive Learning for Battery State of Health Estimation</p>
+                        <span class="work__venue work__venue--journal">
+                            Complex & Intelligent Systems
+                        </span>
+
+                        <h3 class="work__title">
+                            Physics-Informed Neural Network
+                        </h3>
+
+                        <p class="work__desc">
+                            Physics-Informed Neural Network and momentum contrastive
+                            learning for battery state-of-health estimation.
+                        </p>
                     </div>
                 </a>
             </div>
@@ -257,11 +393,34 @@
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form" id="contact-form">
-                    <input type="text" placeholder="Name" class="contact__input" id="contact-name">
-                    <input type="email" placeholder="Email" class="contact__input" id="contact-email">
-                    <textarea name="" id="contact-message" cols="0" rows="10" class="contact__input"
-                        placeholder="Message"></textarea>
-                    <input type="submit" value="Send" class="contact__button button" id="contact-submit">
+                    <input type="text"
+                        name="name"
+                        placeholder="Name"
+                        class="contact__input"
+                        id="contact-name"
+                        autocomplete="name"
+                        required>
+
+                    <input type="email"
+                        name="email"
+                        placeholder="Email"
+                        class="contact__input"
+                        id="contact-email"
+                        autocomplete="email"
+                        required>
+
+                    <textarea name="message"
+                        id="contact-message"
+                        cols="30"
+                        rows="10"
+                        class="contact__input"
+                        placeholder="Message"
+                        required></textarea>
+
+                    <input type="submit"
+                        value="Send"
+                        class="contact__button button"
+                        id="contact-submit">
                 </form>
             </div>
         </section>
@@ -270,19 +429,51 @@
     <!--===== FOOTER =====-->
     <footer class="footer">
         <p class="footer__title">Jiwoo Jung</p>
+
         <div class="footer__social">
-            <a href="https://www.linkedin.com/in/jiwoo00" target="_blank" class="footer__icon"><i
-                    class='bx bxl-linkedin-square'></i></a>
-            <a href="https://github.com/Bennnna" target="_blank" class="footer__icon"><i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/jiwoo00"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer__icon"
+                aria-label="LinkedIn">
+
+                <i class="bx bxl-linkedin-square"></i>
+            </a>
+
+            <a href="https://github.com/Bennnna"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer__icon"
+                aria-label="GitHub">
+
+                <i class="bx bxl-github"></i>
+            </a>
         </div>
-        <p class="footer__copy">&#169; Jiwoo Jung. All rights reserved</p>
+
+        <p class="footer__copy">
+            &#169; Jiwoo Jung. All rights reserved.
+        </p>
     </footer>
 
-    <!--===== MODAL =====-->
-    <div class="modal" id="work-modal">
+    <!--===== RESEARCH MODAL =====-->
+    <div class="modal"
+        id="work-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-hidden="true">
+
         <div class="modal__content">
-            <span class="modal__close" id="modal-close"><i class='bx bx-x'></i></span>
+            <button type="button"
+                class="modal__close"
+                id="modal-close"
+                aria-label="Close research details">
+
+                <i class="bx bx-x"></i>
+            </button>
+
             <h2 class="modal__title" id="modal-title"></h2>
+
             <div class="modal__body" id="modal-body"></div>
         </div>
     </div>
