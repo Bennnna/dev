@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
         content="Jiwoo Jung - AI Researcher & Engineer specializing in Multimodal AI, VLA Models, reasoning–physics consistency auditing, and autonomous driving.">
@@ -16,13 +18,16 @@
     <title>Jiwoo Jung | AI Researcher & Engineer</title>
 
     <!--===== BOX ICONS =====-->
-    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+        rel="stylesheet">
 
-    <!--===== CSS =====-->
+    <!--===== ORIGINAL CSS =====-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
+    <!--===== ADDITIONAL CSS =====-->
     <style>
-        /*===== PUBLICATION CARDS =====*/
+        /*===== RESEARCH CARDS =====*/
         .work__container {
             align-items: start;
         }
@@ -31,6 +36,8 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .work__thumbnail {
@@ -46,10 +53,7 @@
             object-fit: contain;
         }
 
-        /*
-         * PhysMargin-CoC architecture image
-         * 기존 CSS보다 우선 적용되도록 ID 선택자와 !important를 사용합니다.
-         */
+        /*===== PHYSMARGIN THUMBNAIL =====*/
         #work-physmargin .physmargin-thumbnail {
             width: 100%;
             height: 260px !important;
@@ -73,9 +77,154 @@
             border-radius: 0;
         }
 
-        /* 기존 두 번째 이미지가 남아 있을 경우 숨김 */
-        #work-physmargin .physmargin-thumbnail img:not(:first-child) {
-            display: none !important;
+        /*===== MODAL =====*/
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        #work-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            background-color: rgba(6, 18, 40, 0.72);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        #work-modal.show-modal {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #work-modal .modal__content {
+            position: relative;
+            width: min(920px, 100%);
+            max-height: 90vh;
+            padding: 2rem;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(5, 15, 40, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        #work-modal.show-modal .modal__content {
+            transform: translateY(0);
+        }
+
+        #work-modal .modal__close {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            float: right;
+            width: 42px;
+            height: 42px;
+            margin: -0.5rem -0.5rem 0 1rem;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 50%;
+            color: #0e2431;
+            background-color: #eef2f7;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            transition:
+                color 0.2s ease,
+                background-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        #work-modal .modal__close:hover {
+            color: #fff;
+            background-color: #4070f4;
+            transform: rotate(90deg);
+        }
+
+        #work-modal .modal__title {
+            margin: 0 4rem 0.5rem 0;
+            color: #0e2431;
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+        #work-modal .modal__venue {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            color: #0879bd;
+            background-color: #e1f3ff;
+            border-radius: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        #work-modal .modal__images {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        #work-modal .modal__research-image {
+            display: block;
+            width: 100%;
+            max-height: 520px;
+            padding: 0.75rem;
+            object-fit: contain;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        #work-modal .modal__description {
+            color: #5f6675;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        #work-modal .modal__description p {
+            margin: 0 0 1.25rem;
+        }
+
+        #work-modal .modal__description h3 {
+            margin: 1.75rem 0 0.75rem;
+            color: #0e2431;
+            font-size: 1.25rem;
+        }
+
+        #work-modal .modal__description ul {
+            margin: 0 0 1.25rem 1.25rem;
+            padding: 0;
+        }
+
+        #work-modal .modal__description li {
+            margin-bottom: 0.6rem;
+        }
+
+        #work-modal .modal__description strong {
+            color: #0e2431;
         }
 
         @media screen and (max-width: 576px) {
@@ -83,6 +232,38 @@
                 height: 220px !important;
                 min-height: 220px !important;
                 padding: 12px;
+            }
+
+            #work-modal {
+                padding: 0.5rem;
+            }
+
+            #work-modal .modal__content {
+                width: 100%;
+                max-height: 94vh;
+                padding: 1.25rem;
+                border-radius: 0.75rem;
+            }
+
+            #work-modal .modal__close {
+                width: 38px;
+                height: 38px;
+                margin-right: 0;
+                font-size: 1.8rem;
+            }
+
+            #work-modal .modal__title {
+                margin-right: 3rem;
+                font-size: 1.45rem;
+            }
+
+            #work-modal .modal__research-image {
+                max-height: 300px;
+                padding: 0.35rem;
+            }
+
+            #work-modal .modal__description {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -99,28 +280,44 @@
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
+                        <a href="#home"
+                            class="nav__link active-link">
+                            Home
+                        </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">About</a>
+                        <a href="#about" class="nav__link">
+                            About
+                        </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="#skills" class="nav__link">Skills</a>
+                        <a href="#skills" class="nav__link">
+                            Skills
+                        </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="#work" class="nav__link">Research & Publications</a>
+                        <a href="#work" class="nav__link">
+                            Research & Publications
+                        </a>
                     </li>
 
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact</a>
+                        <a href="#contact" class="nav__link">
+                            Contact
+                        </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="nav__toggle" id="nav-toggle">
+            <div class="nav__toggle"
+                id="nav-toggle"
+                role="button"
+                tabindex="0"
+                aria-label="Open navigation menu">
+
                 <i class="bx bx-menu"></i>
             </div>
         </nav>
@@ -132,11 +329,15 @@
             <div class="home__data">
                 <h1 class="home__title">
                     Hi,<br>
-                    I'm <span class="home__title-color">Jiwoo</span><br>
+                    I'm
+                    <span class="home__title-color">Jiwoo</span>
+                    <br>
                     AI Researcher
                 </h1>
 
-                <a href="#contact" class="button">Contact</a>
+                <a href="#contact" class="button">
+                    Contact
+                </a>
             </div>
 
             <div class="home__social">
@@ -179,52 +380,68 @@
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">I'm Jiwoo Jung</h2>
+                    <h2 class="about__subtitle">
+                        I'm Jiwoo Jung
+                    </h2>
 
                     <p class="about__text">
                         <strong>
-                            M.S., Department of Computer Science and Artificial Intelligence,
-                            Dongguk University, Seoul.
+                            M.S., Department of Computer Science and Artificial
+                            Intelligence, Dongguk University, Seoul.
                         </strong>
                         <br><br>
 
-                        AI Researcher specializing in Vision-Language-Action (VLA) models,
-                        reasoning–physics consistency auditing, multimodal AI, and autonomous
-                        driving. Published at CVPR 2026 and in the SCIE Q1 journal
+                        AI Researcher specializing in Vision-Language-Action
+                        (VLA) models, reasoning–physics consistency auditing,
+                        multimodal AI, and autonomous driving. Published at
+                        CVPR 2026 and in the SCIE Q1 journal
                         <em>Complex & Intelligent Systems</em>.
                         <br><br>
 
                         <strong>
-                            Physical-Margin Chain-of-Contradiction (PhysMargin-CoC)
+                            Physical-Margin Chain-of-Contradiction
+                            (PhysMargin-CoC)
                         </strong>
-                        — Developed a deterministic post-hoc auditing framework that identifies
-                        inconsistencies between action-oriented VLA reasoning and independently
-                        computed physical, comfort, and behavioral evidence. The framework
-                        evaluates Waymo Open Motion Dataset scenarios using six signed margins,
-                        text-independent applicability masks, and an inspectable 12 × 6
-                        predicate–margin contradiction matrix. It also provides pairwise evidence
-                        attribution and paired Base/DoRA model evaluation.
+                        — Developed a deterministic post-hoc auditing framework
+                        that identifies inconsistencies between action-oriented
+                        VLA reasoning and independently computed physical,
+                        comfort, and behavioral evidence. The framework
+                        evaluates Waymo Open Motion Dataset scenarios using six
+                        signed margins, text-independent applicability masks,
+                        and an inspectable 12 × 6 predicate–margin contradiction
+                        matrix. It also provides pairwise evidence attribution
+                        and paired Base/DoRA model evaluation.
                         <br><br>
 
-                        <strong>인공지능융합혁신인재양성(IITP/MSIT)</strong>
-                        — Designed a Vision-Language-Action pipeline incorporating inference-time
-                        reasoning methods, including Visual Chain-of-Thought and Tree-of-Thought
-                        evaluation, for autonomous-driving decision analysis. This work led to
-                        publication at <em>CVPR 2026</em>.
+                        <strong>
+                            인공지능융합혁신인재양성(IITP/MSIT)
+                        </strong>
+                        — Designed a Vision-Language-Action pipeline
+                        incorporating inference-time reasoning methods,
+                        including Visual Chain-of-Thought and Tree-of-Thought
+                        evaluation, for autonomous-driving decision analysis.
+                        This work led to publication at
+                        <em>CVPR 2026</em>.
                         <br><br>
 
-                        <strong>ICAN AI+X Project (IITP/MSIT)</strong>
-                        — Developed a Physics-Informed Neural Network combined with momentum
-                        contrastive learning for battery state-of-health estimation and filed a
-                        patent on AI-driven physical-system monitoring. Published in
+                        <strong>
+                            ICAN AI+X Project (IITP/MSIT)
+                        </strong>
+                        — Developed a Physics-Informed Neural Network combined
+                        with momentum contrastive learning for battery
+                        state-of-health estimation and filed a patent on
+                        AI-driven physical-system monitoring. Published in
                         <em>Complex & Intelligent Systems</em>.
                         <br><br>
 
-                        <strong>AI 운전능력평가 표준화사업(KIPoT/경찰청)</strong>
-                        — Designed AI-based evaluation metrics and benchmark scenarios for
-                        autonomous-driving capability assessment and developed a standardized
-                        testing pipeline integrating vision-language models for driving-behavior
-                        analysis.
+                        <strong>
+                            AI 운전능력평가 표준화사업(KIPoT/경찰청)
+                        </strong>
+                        — Designed AI-based evaluation metrics and benchmark
+                        scenarios for autonomous-driving capability assessment
+                        and developed a standardized testing pipeline
+                        integrating vision-language models for
+                        driving-behavior analysis.
                     </p>
                 </div>
             </div>
@@ -236,17 +453,23 @@
 
             <div class="skills__container bd-grid">
                 <div>
-                    <h2 class="skills__subtitle">Professional Skills</h2>
+                    <h2 class="skills__subtitle">
+                        Professional Skills
+                    </h2>
 
                     <p class="skills__text">
-                        My expertise spans foundational engineering, multimodal reasoning,
-                        physical consistency auditing, and state-of-the-art AI model development.
+                        My expertise spans foundational engineering,
+                        multimodal reasoning, physical consistency auditing,
+                        and state-of-the-art AI model development.
                     </p>
 
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bxs-brain skills__icon"></i>
-                            <span class="skills__name">MULTIMODAL AI</span>
+
+                            <span class="skills__name">
+                                MULTIMODAL AI
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__multimodal"></div>
@@ -259,7 +482,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bx-check-shield skills__icon"></i>
-                            <span class="skills__name">AI AUDITING</span>
+
+                            <span class="skills__name">
+                                AI AUDITING
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__agents"></div>
@@ -272,7 +498,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bxs-car skills__icon"></i>
-                            <span class="skills__name">AUTONOMOUS SYSTEMS</span>
+
+                            <span class="skills__name">
+                                AUTONOMOUS SYSTEMS
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__autonomous"></div>
@@ -285,7 +514,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bx-target-lock skills__icon"></i>
-                            <span class="skills__name">VLA MODELS</span>
+
+                            <span class="skills__name">
+                                VLA MODELS
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__vla"></div>
@@ -302,7 +534,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bxl-python skills__icon"></i>
-                            <span class="skills__name">PYTHON</span>
+
+                            <span class="skills__name">
+                                PYTHON
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__python"></div>
@@ -315,7 +550,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bx-code-alt skills__icon"></i>
-                            <span class="skills__name">PYTORCH / TENSORFLOW</span>
+
+                            <span class="skills__name">
+                                PYTORCH / TENSORFLOW
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__pytorch"></div>
@@ -328,7 +566,10 @@
                     <div class="skills__data">
                         <div class="skills__names">
                             <i class="bx bxs-server skills__icon"></i>
-                            <span class="skills__name">FASTAPI / DOCKER</span>
+
+                            <span class="skills__name">
+                                FASTAPI / DOCKER
+                            </span>
                         </div>
 
                         <div class="skills__bar skills__infra"></div>
@@ -343,7 +584,9 @@
 
         <!--===== RESEARCH & PUBLICATIONS =====-->
         <section class="work section" id="work">
-            <h2 class="section-title">Research & Publications</h2>
+            <h2 class="section-title">
+                Research & Publications
+            </h2>
 
             <div class="work__container bd-grid">
                 <!--===== HYBRIDDRIVEVLA =====-->
@@ -365,11 +608,14 @@
                             CVPR 2026
                         </span>
 
-                        <h3 class="work__title">HybridDriveVLA</h3>
+                        <h3 class="work__title">
+                            HybridDriveVLA
+                        </h3>
 
                         <p class="work__desc">
-                            Vision-Language-Action model with Visual Chain-of-Thought
-                            reasoning and Tree-of-Thought evaluation for autonomous driving.
+                            Vision-Language-Action model with Visual
+                            Chain-of-Thought reasoning and Tree-of-Thought
+                            evaluation for autonomous driving.
                         </p>
                     </div>
                 </a>
@@ -381,7 +627,7 @@
                     aria-label="Open PhysMargin-CoC details">
 
                     <div class="work__thumbnail physmargin-thumbnail">
-                        <img src="./assets/img/coc.png"
+                        <img src="assets/img/coc.png"
                             alt="PhysMargin-CoC framework architecture">
                     </div>
 
@@ -390,12 +636,15 @@
                             Ongoing Research
                         </span>
 
-                        <h3 class="work__title">PhysMargin-CoC</h3>
+                        <h3 class="work__title">
+                            PhysMargin-CoC
+                        </h3>
 
                         <p class="work__desc">
-                            Physical-Margin Chain-of-Contradiction auditing for detecting
-                            and attributing reasoning–physics inconsistencies in
-                            autonomous-driving Vision-Language-Action models.
+                            Physical-Margin Chain-of-Contradiction auditing
+                            for detecting and attributing reasoning–physics
+                            inconsistencies in autonomous-driving
+                            Vision-Language-Action models.
                         </p>
                     </div>
                 </a>
@@ -421,8 +670,9 @@
                         </h3>
 
                         <p class="work__desc">
-                            Physics-Informed Neural Network and momentum contrastive
-                            learning for battery state-of-health estimation.
+                            Physics-Informed Neural Network and momentum
+                            contrastive learning for battery state-of-health
+                            estimation.
                         </p>
                     </div>
                 </a>
@@ -434,7 +684,10 @@
             <h2 class="section-title">Contact</h2>
 
             <div class="contact__container bd-grid">
-                <form action="" class="contact__form" id="contact-form">
+                <form action=""
+                    class="contact__form"
+                    id="contact-form">
+
                     <input type="text"
                         name="name"
                         placeholder="Name"
@@ -451,7 +704,8 @@
                         autocomplete="email"
                         required>
 
-                    <textarea name="message"
+                    <textarea
+                        name="message"
                         id="contact-message"
                         cols="30"
                         rows="10"
@@ -523,8 +777,505 @@
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
+    <!--===== PAGE JAVASCRIPT =====-->
+    <script>
+        /*===== MOBILE NAVIGATION =====*/
+        const navMenu = document.getElementById("nav-menu");
+        const navToggle = document.getElementById("nav-toggle");
+        const navLinks = document.querySelectorAll(".nav__link");
+
+        function toggleNavigation() {
+            if (navMenu) {
+                navMenu.classList.toggle("show");
+            }
+        }
+
+        if (navToggle) {
+            navToggle.addEventListener("click", toggleNavigation);
+
+            navToggle.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleNavigation();
+                }
+            });
+        }
+
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                if (navMenu) {
+                    navMenu.classList.remove("show");
+                }
+            });
+        });
+
+
+        /*===== ACTIVE NAVIGATION LINK =====*/
+        const sections = document.querySelectorAll("section[id]");
+
+        function activateNavigationLink() {
+            const scrollPosition = window.scrollY + 120;
+
+            sections.forEach(function (section) {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute("id");
+
+                const navigationLink = document.querySelector(
+                    '.nav__menu a[href="#' + sectionId + '"]'
+                );
+
+                if (!navigationLink) {
+                    return;
+                }
+
+                const isActive =
+                    scrollPosition >= sectionTop &&
+                    scrollPosition < sectionTop + sectionHeight;
+
+                navigationLink.classList.toggle(
+                    "active-link",
+                    isActive
+                );
+            });
+        }
+
+        window.addEventListener(
+            "scroll",
+            activateNavigationLink
+        );
+
+
+        /*===== HEADER SHADOW =====*/
+        function updateHeader() {
+            const header = document.getElementById("header");
+
+            if (!header) {
+                return;
+            }
+
+            header.classList.toggle(
+                "scroll-header",
+                window.scrollY >= 50
+            );
+        }
+
+        window.addEventListener("scroll", updateHeader);
+
+
+        /*===== RESEARCH DATA =====*/
+        const researchData = {
+            "work-vla": {
+                venue: "CVPR 2026",
+
+                title: "HybridDriveVLA",
+
+                images: [
+                    {
+                        src: "assets/img/cvpr1.png",
+                        alt: "HybridDriveVLA overview"
+                    },
+                    {
+                        src: "assets/img/cvpr2.png",
+                        alt: "HybridDriveVLA architecture"
+                    }
+                ],
+
+                description: `
+                    <p>
+                        <strong>HybridDriveVLA</strong> is a
+                        Vision-Language-Action framework designed for
+                        autonomous-driving scene understanding and
+                        decision reasoning.
+                    </p>
+
+                    <p>
+                        The framework incorporates Visual Chain-of-Thought
+                        reasoning to progressively analyze visual driving
+                        information. Tree-of-Thought evaluation is used to
+                        compare multiple candidate decisions before
+                        selecting the final action.
+                    </p>
+
+                    <h3>Research Highlights</h3>
+
+                    <ul>
+                        <li>
+                            Multimodal driving-scene understanding using
+                            visual and linguistic information.
+                        </li>
+
+                        <li>
+                            Visual Chain-of-Thought reasoning for
+                            interpretable autonomous-driving decisions.
+                        </li>
+
+                        <li>
+                            Tree-of-Thought evaluation for comparing
+                            multiple candidate actions.
+                        </li>
+
+                        <li>
+                            Vision-Language-Action modeling for autonomous
+                            driving decision analysis.
+                        </li>
+                    </ul>
+                `
+            },
+
+            "work-physmargin": {
+                venue: "Ongoing Research",
+
+                title: "PhysMargin-CoC",
+
+                images: [
+                    {
+                        src: "assets/img/coc.png",
+                        alt: "PhysMargin-CoC framework architecture"
+                    }
+                ],
+
+                description: `
+                    <p>
+                        <strong>
+                            Physical-Margin Chain-of-Contradiction
+                            (PhysMargin-CoC)
+                        </strong>
+                        is a deterministic post-hoc auditing framework
+                        for evaluating reasoning–physics consistency in
+                        autonomous-driving Vision-Language-Action models.
+                    </p>
+
+                    <p>
+                        A driving VLA model may generate fluent and
+                        plausible reasoning even when its claims conflict
+                        with the physical state of the driving scene.
+                        PhysMargin-CoC detects these inconsistencies by
+                        comparing action-oriented language with
+                        independently computed physical, comfort, and
+                        behavioral evidence.
+                    </p>
+
+                    <h3>Research Objective</h3>
+
+                    <p>
+                        The objective is not to directly control a vehicle
+                        or predict crashes. The framework audits whether
+                        generated reasoning is consistent with observable
+                        driving conditions and the model's final decision.
+                    </p>
+
+                    <h3>Method</h3>
+
+                    <ul>
+                        <li>
+                            Processes autonomous-driving scenarios from
+                            the Waymo Open Motion Dataset.
+                        </li>
+
+                        <li>
+                            Extracts 12 action-oriented predicates from
+                            generated VLA reasoning.
+                        </li>
+
+                        <li>
+                            Computes six signed physical, comfort, and
+                            behavioral margins independently of the
+                            generated text.
+                        </li>
+
+                        <li>
+                            Applies text-independent margin and
+                            predicate-pair applicability masks.
+                        </li>
+
+                        <li>
+                            Uses a fixed and inspectable 12 × 6
+                            predicate–margin contradiction matrix.
+                        </li>
+
+                        <li>
+                            Produces a deterministic contradiction score
+                            with predicate-level and margin-level evidence
+                            attribution.
+                        </li>
+                    </ul>
+
+                    <h3>Evaluation</h3>
+
+                    <p>
+                        The research performs paired evaluation of a base
+                        multimodal model and a DoRA-adapted model using
+                        identical scene inputs, prompts, data splits, and
+                        decoding conditions. The independent audit path
+                        does not provide physical margins or audit labels
+                        to the model-generation path.
+                    </p>
+
+                    <h3>Key Contribution</h3>
+
+                    <p>
+                        PhysMargin-CoC explicitly separates physical
+                        danger from reasoning contradiction. A hazardous
+                        physical state is not automatically classified as
+                        a contradiction when the model correctly
+                        acknowledges the hazard and selects a compatible
+                        action.
+                    </p>
+                `
+            },
+
+            "work-pinn": {
+                venue: "Complex & Intelligent Systems",
+
+                title: "Physics-Informed Neural Network",
+
+                images: [
+                    {
+                        src: "assets/img/com1.png",
+                        alt: "Physics-Informed Neural Network for battery state-of-health estimation"
+                    }
+                ],
+
+                description: `
+                    <p>
+                        This research proposes a battery state-of-health
+                        estimation method combining a Physics-Informed
+                        Neural Network with momentum contrastive learning.
+                    </p>
+
+                    <p>
+                        Physical knowledge is incorporated into the
+                        neural-network learning process to improve
+                        robustness and generalization under varying
+                        battery operating conditions.
+                    </p>
+
+                    <h3>Research Highlights</h3>
+
+                    <ul>
+                        <li>
+                            Physics-informed learning for battery
+                            degradation modeling.
+                        </li>
+
+                        <li>
+                            Momentum contrastive learning for robust
+                            feature representation.
+                        </li>
+
+                        <li>
+                            Battery state-of-health estimation under
+                            different operational conditions.
+                        </li>
+
+                        <li>
+                            AI-driven physical-system monitoring
+                            methodology.
+                        </li>
+                    </ul>
+                `
+            }
+        };
+
+
+        /*===== RESEARCH MODAL =====*/
+        const modal = document.getElementById("work-modal");
+        const modalContent = modal
+            ? modal.querySelector(".modal__content")
+            : null;
+
+        const modalClose =
+            document.getElementById("modal-close");
+
+        const modalTitle =
+            document.getElementById("modal-title");
+
+        const modalBody =
+            document.getElementById("modal-body");
+
+        const researchCards =
+            document.querySelectorAll(".work__card");
+
+        let lastOpenedCard = null;
+
+
+        function openResearchModal(cardId, cardElement) {
+            const research = researchData[cardId];
+
+            if (
+                !research ||
+                !modal ||
+                !modalTitle ||
+                !modalBody
+            ) {
+                return;
+            }
+
+            lastOpenedCard = cardElement || null;
+
+            const imageMarkup = research.images
+                .map(function (image) {
+                    return `
+                        <img
+                            src="${image.src}"
+                            alt="${image.alt}"
+                            class="modal__research-image"
+                        >
+                    `;
+                })
+                .join("");
+
+            modalTitle.textContent = research.title;
+
+            modalBody.innerHTML = `
+                <span class="modal__venue">
+                    ${research.venue}
+                </span>
+
+                <div class="modal__images">
+                    ${imageMarkup}
+                </div>
+
+                <div class="modal__description">
+                    ${research.description}
+                </div>
+            `;
+
+            modal.classList.add("show-modal");
+            modal.setAttribute("aria-hidden", "false");
+
+            document.body.classList.add("modal-open");
+
+            window.setTimeout(function () {
+                if (modalClose) {
+                    modalClose.focus();
+                }
+            }, 50);
+        }
+
+
+        function closeResearchModal() {
+            if (!modal) {
+                return;
+            }
+
+            modal.classList.remove("show-modal");
+            modal.setAttribute("aria-hidden", "true");
+
+            document.body.classList.remove("modal-open");
+
+            if (lastOpenedCard) {
+                lastOpenedCard.focus();
+            }
+        }
+
+
+        researchCards.forEach(function (card) {
+            card.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                openResearchModal(
+                    card.id,
+                    card
+                );
+            });
+        });
+
+
+        if (modalClose) {
+            modalClose.addEventListener(
+                "click",
+                closeResearchModal
+            );
+        }
+
+
+        if (modal) {
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    closeResearchModal();
+                }
+            });
+        }
+
+
+        if (modalContent) {
+            modalContent.addEventListener(
+                "click",
+                function (event) {
+                    event.stopPropagation();
+                }
+            );
+        }
+
+
+        document.addEventListener("keydown", function (event) {
+            if (
+                event.key === "Escape" &&
+                modal &&
+                modal.classList.contains("show-modal")
+            ) {
+                closeResearchModal();
+            }
+        });
+
+
+        /*===== CONTACT FORM =====*/
+        const contactForm =
+            document.getElementById("contact-form");
+
+        if (contactForm) {
+            contactForm.addEventListener(
+                "submit",
+                function (event) {
+                    event.preventDefault();
+
+                    alert(
+                        "Thank you for your message. Please contact me through LinkedIn."
+                    );
+                }
+            );
+        }
+
+
+        /*===== SCROLL REVEAL =====*/
+        if (typeof ScrollReveal !== "undefined") {
+            const scrollReveal = ScrollReveal({
+                origin: "top",
+                distance: "60px",
+                duration: 1800,
+                delay: 150,
+                reset: false
+            });
+
+            scrollReveal.reveal(
+                ".home__data, .about__img, .skills__subtitle",
+                {
+                    origin: "left"
+                }
+            );
+
+            scrollReveal.reveal(
+                ".home__img, .about__text, .skills__data",
+                {
+                    origin: "right"
+                }
+            );
+
+            scrollReveal.reveal(
+                ".home__social-icon, .work__card, .contact__input",
+                {
+                    interval: 120
+                }
+            );
+        }
+
+
+        /*===== INITIAL STATE =====*/
+        activateNavigationLink();
+        updateHeader();
+    </script>
 </body>
 
 </html>
